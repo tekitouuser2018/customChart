@@ -1,0 +1,25 @@
+{
+  "name": "customchart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify src/js/index.js > build/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tekitouuser2018/customChart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tekitouuser2018/customChart/issues"
+  },
+  "homepage": "https://github.com/tekitouuser2018/customChart#readme",
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "chart.js": "^2.9.4",
+    "save": "^2.4.0"
+  }
+}
