@@ -21,7 +21,7 @@ function getCjsExportFromNamespace (n) {
 	return n && n['default'] || n;
 }
 
-var colorName = {
+const colorName = {
 	"aliceblue": [240, 248, 255],
 	"antiquewhite": [250, 235, 215],
 	"aqua": [0, 255, 255],
@@ -171,6 +171,8 @@ var colorName = {
 	"yellow": [255, 255, 0],
 	"yellowgreen": [154, 205, 50]
 };
+
+let itemCount = 0;
 
 var conversions = createCommonjsModule(function (module) {
 /* MIT license */
@@ -1229,7 +1231,7 @@ models.forEach(function (fromModel) {
 
 var colorConvert = convert;
 
-var colorName$1 = {
+const colorName$1 = {
 	"aliceblue": [240, 248, 255],
 	"antiquewhite": [250, 235, 215],
 	"aqua": [0, 255, 255],
@@ -2713,6 +2715,39 @@ var effects = {
 
 var helpers_easing = {
 	effects: effects
+};
+
+const STAR = "star";
+const HEART = "heart";
+const GOOD = "good";
+const BAD = "bad";
+
+
+var icons = {
+
+	drawStar: function(ctx, x, y) {
+		var markerObj = new Image();
+		ctx.beginPath();
+
+		markerObj.onload = function() {
+			ctx.drawImage(markerObj, x-10, y-10, 20, 20 * markerObj.height / markerObj.width);
+		};
+		markerObj.src = '../../node_modules/chart.js/dist/asset/star.svg';
+		ctx.fill();
+		ctx.stroke();
+	},
+	drawHeart: function(ctx, x, y) {
+		var markerObj = new Image();
+		ctx.beginPath();
+
+		markerObj.onload = function() {
+			ctx.drawImage(markerObj, x-10, y-10, 20, 20 * markerObj.height / markerObj.width);
+		};
+		markerObj.src = '../../node_modules/chart.js/dist/asset/heart.svg';
+		ctx.fill();
+		ctx.stroke();
+	}
+	
 };
 
 // DEPRECATIONS
@@ -4511,6 +4546,10 @@ var element_point = core_element.extend({
 		var globalDefaults = core_defaults.global;
 		var defaultColor = globalDefaults.defaultColor; // eslint-disable-line no-shadow
 
+		const iconType = this._chart.config.icon;
+		const itemLen = this._chart.config.data.labels.length;
+
+
 		if (vm.skip) {
 			return;
 		}
@@ -4521,6 +4560,27 @@ var element_point = core_element.extend({
 			ctx.lineWidth = valueOrDefault$2(vm.borderWidth, globalDefaults.elements.point.borderWidth);
 			ctx.fillStyle = vm.backgroundColor || defaultColor;
 			helpers$1.canvas.drawPoint(ctx, pointStyle, radius, x, y, rotation);
+			
+
+			// TODO: ポイントの倍の数描画される
+			if (itemCount >= itemLen) {
+				switch(iconType){
+
+					case STAR :
+						icons.drawStar(ctx, x, y);
+						console.log("draw start");
+						break;
+					case HEART :
+						icons.drawHeart(ctx, x, y);
+						console.log("draw heart");
+						break;
+					default:
+	
+				}
+			}
+			
+			itemCount++;
+
 		}
 	}
 });
@@ -6897,6 +6957,7 @@ var core_interaction = {
 			if (items.length > 0) {
 				items = chart.getDatasetMeta(items[0]._datasetIndex).data;
 			}
+			itemCount = 0;
 
 			return items;
 		},
@@ -21848,7 +21909,9 @@ return src;
 const Chart = require('chart.js');
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
+    icon : 'star',
+
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
