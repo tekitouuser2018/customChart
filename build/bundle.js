@@ -3059,6 +3059,32 @@ var exports$1 = {
 			ctx.closePath();
 
 			break;
+		case 'rain':
+			xOffset = Math.cos(rad) * radius;
+			yOffset = Math.sin(rad) * radius;
+
+			xx = x - xOffset + 7;
+			yy = y - yOffset ;
+
+			ctx.moveTo(xx, yy);
+
+			ctx.quadraticCurveTo(xx + 1,yy - 8,xx + 6,yy - 5);
+			ctx.quadraticCurveTo(xx + 9,yy - 12,xx + 16,yy - 6);
+			ctx.quadraticCurveTo(xx + 22,yy - 9,xx + 24,yy );
+			ctx.quadraticCurveTo(xx + 23,yy + 7,xx + 18,yy + 4);
+			ctx.quadraticCurveTo(xx + 11,yy + 8,xx + 8,yy + 4);
+			ctx.quadraticCurveTo(xx + 2,yy + 8,xx,yy);
+			ctx.closePath();
+
+			ctx.moveTo(xx + 5, yy + 7);
+			ctx.lineTo(xx + 10, yy + 12);
+			ctx.moveTo(xx + 12, yy + 7);
+			ctx.lineTo(xx + 17, yy + 12);
+			ctx.moveTo(xx + 19, yy + 7);
+			ctx.lineTo(xx + 24, yy + 12);
+
+			break;
+			
 		}
 
 		ctx.fill();
@@ -22045,7 +22071,7 @@ const Chart = require('chart.js');
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
-    icon : ['star', 'star', 'star', 'heart', 'heart', 'heart'],
+    icon : ['star', 'rain', 'rain', 'heart', 'heart', 'heart'],
 
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
