@@ -2,7 +2,7 @@ const Chart = require('chart.js');
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
-    icon : 'star',
+    icon : ['star', 'star', 'star', 'heart', 'heart', 'heart'],
 
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
