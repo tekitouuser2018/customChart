@@ -5415,7 +5415,7 @@ core_defaults._set('bubble', {
 				return '';
 			},
 			label: function(item, data) {
-				var datasetLabel = data.datasets[item.datasetIndex].label || '';
+				var datasetLabel = data.datasets[item.datasetIndex].label[item.index] || '';
 				var dataPoint = data.datasets[item.datasetIndex].data[item.index];
 				return datasetLabel + ': (' + item.xLabel + ', ' + item.yLabel + ', ' + dataPoint.r + ')';
 			}
@@ -5649,7 +5649,8 @@ core_defaults._set('doughnut', {
 			},
 			label: function(tooltipItem, data) {
 				var dataLabel = data.labels[tooltipItem.index];
-				var value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+				// var value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+				var value = '';
 
 				if (helpers$1.isArray(dataLabel)) {
 					// show value on first line of multiline label
@@ -6455,7 +6456,8 @@ core_defaults._set('polarArea', {
 				return '';
 			},
 			label: function(item, data) {
-				return data.labels[item.index] + ': ' + item.yLabel;
+				return data.labels[item.index];
+				// return data.labels[item.index] + ': ' + item.yLabel;
 			}
 		}
 	}
@@ -8369,13 +8371,16 @@ core_defaults._set('global', {
 		titleMarginBottom: 6,
 		titleFontColor: '#fff',
 		titleAlign: 'left',
+		titleFontSize: 16,
 		bodySpacing: 2,
 		bodyFontColor: '#fff',
+		bodyFontSize: 16,
 		bodyAlign: 'left',
 		footerFontStyle: 'bold',
 		footerSpacing: 2,
 		footerMarginTop: 6,
 		footerFontColor: '#fff',
+		footerFontSize: 16,
 		footerAlign: 'left',
 		yPadding: 6,
 		xPadding: 6,
@@ -8415,16 +8420,16 @@ core_defaults._set('global', {
 			// Args are: (tooltipItem, data)
 			beforeLabel: helpers$1.noop,
 			label: function(tooltipItem, data) {
-				var label = data.datasets[tooltipItem.datasetIndex].label || '';
+				var label = data.datasets[tooltipItem.datasetIndex].label[tooltipItem.index] || '';
 
-				if (label) {
-					label += ': ';
-				}
-				if (!helpers$1.isNullOrUndef(tooltipItem.value)) {
-					label += tooltipItem.value;
-				} else {
-					label += tooltipItem.yLabel;
-				}
+				// if (label) {
+				// 	label += ': ';
+				// }
+				// if (!helpers$1.isNullOrUndef(tooltipItem.value)) {
+				// 	label += tooltipItem.value;
+				// } else {
+				// 	label += tooltipItem.yLabel;
+				// }
 				return label;
 			},
 			labelColor: function(tooltipItem, chart) {
@@ -8695,6 +8700,9 @@ function getTooltipSize(tooltip, model) {
 
 	// Add padding
 	width += 2 * model.xPadding;
+
+	width += 70;
+	height += 12;
 
 	return {
 		width: width,
@@ -22076,7 +22084,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
-            label: '# of Votes',
+            label: ['Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label'],
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
