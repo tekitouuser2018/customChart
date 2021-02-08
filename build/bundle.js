@@ -172,7 +172,8 @@ const colorName = {
 	"yellowgreen": [154, 205, 50]
 };
 
-let itemCount = 0;
+// let itemCount = 0;
+const iconSizeFix = 2;
 
 var conversions = createCommonjsModule(function (module) {
 /* MIT license */
@@ -3026,10 +3027,10 @@ var exports$1 = {
 
 			ctx.moveTo(xx, yy);
 
-			ctx.lineTo(xx - 5, yy + 13);
-			ctx.lineTo(xx + 9, yy + 4);
-			ctx.lineTo(xx - 8, yy + 4);
-			ctx.lineTo(xx + 6, yy + 13);
+			ctx.lineTo(xx - 5 - iconSizeFix, yy + 13 + iconSizeFix*2);
+			ctx.lineTo(xx + 9 + iconSizeFix, yy + 4 + iconSizeFix);
+			ctx.lineTo(xx - 8 - iconSizeFix, yy + 4 + iconSizeFix);
+			ctx.lineTo(xx + 6 + iconSizeFix, yy + 13 + iconSizeFix*2);
 			ctx.closePath();
 
 			break;
@@ -3052,9 +3053,9 @@ var exports$1 = {
 
 			ctx.moveTo(xx, yy);
 
-			ctx.quadraticCurveTo(xx + 7,yy - 4,xx + 8,yy - 9);
-			ctx.quadraticCurveTo(xx + 6,yy - 18,xx,yy - 10);
-			ctx.quadraticCurveTo(xx - 6,yy - 18,xx - 8,yy - 9);
+			ctx.quadraticCurveTo(xx + 7,yy - 4,xx + 8 + iconSizeFix,yy - 9 - iconSizeFix);
+			ctx.quadraticCurveTo(xx + 6 + iconSizeFix,yy - 18 - iconSizeFix,xx ,yy - 10 - iconSizeFix);
+			ctx.quadraticCurveTo(xx - 6 - iconSizeFix,yy - 18 - iconSizeFix,xx - 8 - iconSizeFix,yy - 9 - iconSizeFix);
 			ctx.quadraticCurveTo(xx - 7,yy - 4,xx,yy);
 			ctx.closePath();
 
@@ -3875,7 +3876,7 @@ helpers$1.extend(DatasetController.prototype, {
 		me.linkScales();
 		me.addElements();
 		me._type = me.getMeta().type;
-		itemCount = 0;
+		// itemCount = 0;
 	},
 
 	updateIndex: function(datasetIndex) {
@@ -6732,7 +6733,7 @@ var controller_radar = core_datasetController.extend({
 		var scale = me.chart.scale;
 		var config = me._config;
 		var i, ilen;
-		itemCount = 0;
+		// itemCount = 0;
 
 		// Compatibility: If the properties are defined with only the old name, use those values
 		if (config.tension !== undefined && config.lineTension === undefined) {
@@ -8402,8 +8403,7 @@ core_defaults._set('global', {
 				if (tooltipItems.length > 0) {
 					var item = tooltipItems[0];
 					if (item.label) {
-						title = item.title;
-						// title = item.label;
+						title = item.label;
 					} else if (item.xLabel) {
 						title = item.xLabel;
 					} else if (labelCount > 0 && item.index < labelCount) {
@@ -16225,7 +16225,7 @@ var plugin_title = {
 	beforeUpdate: function(chart) {
 		var titleOpts = chart.options.title;
 		var titleBlock = chart.titleBlock;
-		itemCount = 0;
+		// itemCount = 0;
 
 		if (titleOpts) {
 			helpers$1.mergeIf(titleOpts, core_defaults.global.title);
@@ -22083,15 +22083,21 @@ const Chart = require('chart.js');
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
-    icon : ['star', 'rain', 'rain', 'heart', 'heart', 'heart'],
+    icon : ['star', 'rain', 'rain', 'heart', 'heart', 'heart', 'star', 'rain', 'rain', 'heart', 'heart', 'heart'],
 
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             title: 'TEST CHART',
-            label: ['Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label'],
-            data: [12, 19, 3, 5, 2, 3],
+            label: ['Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label', 'Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label'],
+            data: [12, 19, 3, 5, 2, 3, -10, -2, 0, 10, 20, 16],
             backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
@@ -22100,6 +22106,12 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
