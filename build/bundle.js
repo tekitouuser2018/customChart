@@ -4703,7 +4703,7 @@ var element_point = core_element.extend({
 
 		const iconType = this._chart.config.icon[index];
 		const itemLen = this._chart.config.data.labels.length;
-		console.log(iconType);
+		// console.log(iconType);
 
 
 		if (vm.skip) {
@@ -6336,7 +6336,7 @@ var controller_line = core_datasetController.extend({
 
 		// Draw the points
 		for (; i < ilen; ++i) {
-			console.log("draw points");
+			// console.log("draw points");
 			points[i].draw(area, i);
 		}
 	},
@@ -8402,7 +8402,8 @@ core_defaults._set('global', {
 				if (tooltipItems.length > 0) {
 					var item = tooltipItems[0];
 					if (item.label) {
-						title = item.label;
+						title = item.title;
+						// title = item.label;
 					} else if (item.xLabel) {
 						title = item.xLabel;
 					} else if (labelCount > 0 && item.index < labelCount) {
@@ -10421,6 +10422,8 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 				duration: me.options.hover.animationDuration,
 				lazy: true
 			});
+			console.log('TOOLTIP DISPLAY');
+
 		}
 
 		me._bufferedRender = false;
@@ -15424,7 +15427,8 @@ core_defaults._set('global', {
 					var style = meta.controller.getStyle(usePointStyle ? 0 : undefined);
 
 					return {
-						text: datasets[meta.index].label,
+						text: datasets[meta.index].title,
+						// text: datasets[meta.index].label,
 						fillStyle: style.backgroundColor,
 						hidden: !chart.isDatasetVisible(meta.index),
 						lineCap: style.borderCapStyle,
@@ -22084,6 +22088,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
+            title: 'TEST CHART',
             label: ['Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label'],
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [

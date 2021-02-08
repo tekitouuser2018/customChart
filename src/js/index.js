@@ -7,6 +7,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
+            title: 'TEST CHART',
             label: ['Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label'],
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
