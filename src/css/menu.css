@@ -1,7 +1,7 @@
 .sidebar {
     width:200px;
     height:100%;
-    background-color: rgb(107, 155, 156);
+    background-color: rgba(156, 232, 233, 0.8);
 }
 
 .sidebar div {
@@ -38,11 +38,28 @@ ul li {
     border: 1px solid rgb(0, 0, 0);
 }
 
+ul li:before{
+    content: '';
+    background: inherit;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+  }
+
 ul li:hover {
     /* font-style: italic; */
     /* border-radius: 0.5em; */
     /* border: 2px solid red;　*/
     /* box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5); */
+    background-color: rgba(156, 232, 233);
     -moz-box-shadow-bottom: 4px 4px 4px black;
     -webkit-box-shadow-bottom: 4px 4px 4px black;
     box-shadow: 4px 4px 4px black;
@@ -51,6 +68,8 @@ ul li:hover {
     transform: skewX(150deg) ; 
     transition-duration: 0.3s;
 }
+
+
 
 html {
     height: 100%;
