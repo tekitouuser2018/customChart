@@ -14,16 +14,16 @@ function menu_edit(){
     const chart = document.getElementById("myChart");
     let heightStyle = chart.style.height;
     let heightInt = parseInt(heightStyle);
-    // let width = height.val;
     if (!half) {
         heightInt /= 2;
+        heightInt = heightInt *1.1;
+        heightInt = Math.min(heightInt, 527);
         chart.style.height = heightInt.toString() + "px";
-        // chart.height = heightInt;
         half = true;
     } else {
         heightInt *= 2;
+        heightInt = Math.min(heightInt, 527);
         chart.style.height = heightInt.toString() + "px";
-        // chart.height = heightInt;
         half = false;
     }
 }
