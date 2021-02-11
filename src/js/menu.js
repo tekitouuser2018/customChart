@@ -1,5 +1,6 @@
 
 let half = false;
+let tra = true;
 
 
 function menu_edit(){
@@ -36,3 +37,21 @@ menuList[i].addEventListener("click", function() {
     menuList[i].classList.toggle("list-click");
     });
 }
+
+
+function transparent_button_func(){
+    let element = document.getElementById("container-edit");
+    if (tra) {
+        element.style.backgroundColor= "rgb(245, 255, 255, 1)";
+        tra = false;
+    } else {
+        element.style.backgroundColor= "rgb(139, 185, 149, 0.2)";
+        tra = true;
+    }
+
+    // const button = document.getElementById("transparent-toggle");
+
+    // button.classList.toggle("transparent-toggle-clicked");
+
+}
+document.getElementById("transparent-toggle").addEventListener('click',transparent_button_func);
