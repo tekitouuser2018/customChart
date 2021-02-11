@@ -47,15 +47,24 @@
 }
 
 .container-edit{
-    height:50%;
-    width:100%;
+    height:54%;
+    width:80%;
     order:50;	
     border: 2px solid rgba(119, 133, 153, 0.8);
     border-radius: 0.2em;
     -moz-box-shadow-bottom: 4px 4px 4px rgb(53, 74, 141);
     -webkit-box-shadow-bottom: 4px 4px 4px rgb(53, 74, 141);
     box-shadow: 4px 4px 4px rgb(53, 74, 141);
+    background-color: rgb(139, 185, 149, 0.2);
     display:inline;	
+    position: fixed;
+    top: 40%;
+    left: 18%;
+}
+
+#bottom-empty {
+    width: auto;
+    height: 316px;
 }
 
 nav {

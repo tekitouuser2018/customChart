@@ -11,21 +11,21 @@ function menu_edit(){
     }
 
     // document.getElementById("container-canvas").classList.toggle("myChart-half");
-    const chart = document.getElementById("myChart");
-    let heightStyle = chart.style.height;
-    let heightInt = parseInt(heightStyle);
-    if (!half) {
-        heightInt /= 2;
-        heightInt = heightInt *1.1;
-        heightInt = Math.min(heightInt, 527);
-        chart.style.height = heightInt.toString() + "px";
-        half = true;
-    } else {
-        heightInt *= 2;
-        heightInt = Math.min(heightInt, 527);
-        chart.style.height = heightInt.toString() + "px";
-        half = false;
-    }
+    // const chart = document.getElementById("myChart");
+    // let heightStyle = chart.style.height;
+    // let heightInt = parseInt(heightStyle);
+    // if (!half) {
+    //     heightInt /= 2;
+    //     heightInt = heightInt *1.1;
+    //     heightInt = Math.min(heightInt, 527);
+    //     chart.style.height = heightInt.toString() + "px";
+    //     half = true;
+    // } else {
+    //     heightInt *= 2;
+    //     heightInt = Math.min(heightInt, 527);
+    //     chart.style.height = heightInt.toString() + "px";
+    //     half = false;
+    // }
 }
 document.getElementById("menu-edit").addEventListener('click',menu_edit);
 
