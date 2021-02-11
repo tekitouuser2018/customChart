@@ -1,11 +1,15 @@
 .sidebar {
     width:200px;
     height:100%;
+    border-radius: 0.5em;
     background-color: rgba(156, 232, 233, 0.8);
+    -moz-box-shadow:    inset 2px -2px 6px #000000;
+    -webkit-box-shadow: inset 2px -2px 6px #000000;
+    box-shadow:         inset 2px -2px 6px #000000;
+    background: linear-gradient(70deg, rgb(255, 210, 151), rgb(130, 224, 236));
 }
 
 .sidebar div {
-    height:200px;
 
     margin:60px 0px 30px 0px;
 }
@@ -16,8 +20,42 @@
     margin: 30px 0 30px 0;
 }
 
+.f-container-outer {
+    height: 100%;
+    margin: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.f-container-right {
+    height: 100%;
+    width:100%;
+    margin: 0 5px 0 5px;
+    display: flex;
+	flex-direction: column;
+    
+}
+
 .f-container{
+    height:100%;
     display:flex;	
+}
+
+.container-canvas {
+    height:50%;
+    width:100%;
+}
+
+.container-edit{
+    height:50%;
+    width:100%;
+    order:50;	
+    border: 2px solid rgba(119, 133, 153, 0.8);
+    border-radius: 0.2em;
+    -moz-box-shadow-bottom: 4px 4px 4px rgb(53, 74, 141);
+    -webkit-box-shadow-bottom: 4px 4px 4px rgb(53, 74, 141);
+    box-shadow: 4px 4px 4px rgb(53, 74, 141);
+    display:inline;	
 }
 
 nav {
@@ -36,6 +74,18 @@ ul li {
     text-align: center;
     border-radius: 0.1em;
     border: 1px solid rgb(0, 0, 0);
+}
+
+/* ul li:active {
+    background-color: rgb(156, 187, 233);
+} */
+
+.list-click {
+    border: 3px solid rgba(218, 142, 91);
+    border-radius: 3em;
+    -moz-box-shadow-bottom: 4px 4px 4px black;
+    -webkit-box-shadow-bottom: 4px 4px 4px black;
+    box-shadow: 4px 4px 4px black;
 }
 
 ul li:before{

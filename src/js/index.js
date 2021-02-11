@@ -9,7 +9,7 @@ var myChart = new Chart(ctx, {
         datasets: [{
             title: 'TEST CHART',
             label: ['Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label', 'Red label', 'Blue label', 'Yellow label', 'Green label', 'Purple label', 'Orange label'],
-            data: [12, 19, 3, 5, 2, 3, -10, -2, 0, 10, 20, 16],
+            data: [12, 19, 3, 5, 2, 3, -20, -12, -2, 8, 20, 16],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
