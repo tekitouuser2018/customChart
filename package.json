@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify src/js/index.js > build/bundle.js"
+    "build": "browserify src/js/index.js > build/bundle.js",
+    "compile:sass": "node-sass src/sass/*.scss src/css/style.css -w",
+    "sass": "node-sass --importer node_modules/node-sass-globbing/index.js -o src/css/ src/sass/main.scss"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,8 @@
   "dependencies": {
     "browserify": "^17.0.0",
     "chart.js": "^2.9.4",
+    "node-sass": "^5.0.0",
+    "node-sass-globbing": "0.0.23",
     "save": "^2.4.0"
   }
 }
